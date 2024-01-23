@@ -5,6 +5,9 @@ permissions:
   pages: write
   id-token: write
 
+env:
+  CARGO_TERM_COLOR: always
+
 on:
   pull_request:
     branches:
@@ -49,7 +52,7 @@ jobs:
       uses: actions-rs/cargo@v1
       with:
         command: install
-        args: wasm-bindgen-cli
+        args: wasm-bindgen-cli -f
 
     - name: Generate wasm-bindgen bindings
       run: wasm-bindgen --out-dir ./target/web --target web ./target/wasm32-unknown-unknown/release/super_duper_octo_spoon.wasm |
