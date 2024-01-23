@@ -21,7 +21,7 @@ jobs:
           ~/.cargo/registry/cache/
           ~/.cargo/git/db/
           target/
-
+        key: ubuntu-latest-cargo-build-stable-${{ hashFiles('**/Cargo.toml') }}
     - name: Install Rust
       uses: actions-rs/toolchain@v1
       with:
