@@ -51,8 +51,9 @@ jobs:
         command: install
         args: wasm-bindgen-cli
 
-    - name: Run wasm-bindgen 
-      run: wasm-bindgen --out-dir ./target/web --target web ./target/wasm32-unknown-unknown/release/super_duper_octo_spoon.wasm
+    - name: Generate wasm-bindgen bindings
+      run: wasm-bindgen --out-dir ./target/web --target web ./target/wasm32-unknown-unknown/release/super_duper_octo_spoon.wasm |
+        cp index.html ./target/web/index.html
 
     - name: Upload GitHub Pages artifact
       uses: actions/upload-pages-artifact@v3.0.0
