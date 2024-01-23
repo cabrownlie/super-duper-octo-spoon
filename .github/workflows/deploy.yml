@@ -52,13 +52,12 @@ jobs:
     - name: Package static files
       run: |
         cp index.html ./target/web
-        cp -r assets ./target/web
         tar -czvf target/web.tar.gz -C target/web .
 
     - name: Upload GitHub Pages artifact
       uses: actions/upload-pages-artifact@v3.0.0
       with:
-        path: ./target/web.tar.gz
+        path: web.tar.gz
   
     - name: Deploy GitHub Pages site
       uses: actions/deploy-pages@v4.0.3  
