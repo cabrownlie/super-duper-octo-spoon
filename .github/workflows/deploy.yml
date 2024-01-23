@@ -38,7 +38,7 @@ jobs:
       uses: actions-rs/cargo@v1
       with:
         command: build
-        args: --target wasm32-unknown-unknown
+        args: --target wasm32-unknown-unknown --release
 
     - name: Install wasm-bindgen-cli
       uses: actions-rs/cargo@v1
@@ -47,7 +47,7 @@ jobs:
         args: wasm-bindgen-cli
 
     - name: Run wasm-bindgen 
-      run: wasm-bindgen --out-dir ./target/web --target web ./target/wasm32-unknown-unknown/debug/super_duper_octo_spoon_bg.wasm
+      run: wasm-bindgen --out-dir ./target/web --target web ./target/wasm32-unknown-unknown/release/super_duper_octo_spoon.wasm
 
     - name: Package static files
       run: |
